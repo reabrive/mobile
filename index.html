@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de saisie des valeurs biologiques</title>
-    <style>
-        body {
+<html>
+   <head>
+      <title>Calculateur Stewart</title>
+      <meta charset="utf-8">
+      <style>
+          body {
             font-family: Arial, sans-serif;
             padding: 20px;
         }
@@ -53,19 +52,15 @@
             margin-top: 20px;
             width: 100%;
         }
-    </style>
-    <script>
-        function incrementInput(inputId, step) {
-            const input = document.getElementById(inputId);
-            const currentValue = parseFloat(input.value) || parseFloat(input.getAttribute('data-default'));
-            input.value = (currentValue + step).toFixed(2);
-        }
-    </script>
-</head>
-<body>
-    <body>
-    <form>
-        <div class="input-container">
+		
+		
+		
+      </style>
+   </head>
+   <body>
+      
+      <form onsubmit="return false;">
+      <div class="input-container">
             <label for="ph">pH</label>
             <button type="button" class="decrement" onclick="incrementInput('ph', -0.05)">-</button>
             <input type="number" step="0.05" id="ph" name="ph" data-default="7.4" readonly>
@@ -157,6 +152,8 @@
         </div>
 
 
+         
+     
 
          <button onclick="calculerstewart()">Calculer</button>
       </form>
@@ -193,6 +190,11 @@
 </footer>
 
      <script>
+     function incrementInput(inputId, step) {
+            const input = document.getElementById(inputId);
+            const currentValue = parseFloat(input.value) || parseFloat(input.getAttribute('data-default'));
+            input.value = (currentValue + step).toFixed(2);
+        }
      document.querySelectorAll('input[type="number"]').forEach(input => {
             input.addEventListener('focus', function () {
                 if (!this.dataset.used) {
@@ -215,7 +217,6 @@
   var albumine = parseFloat(document.getElementById("albumine").value);
   var bicarbonate = parseFloat(document.getElementById("bicarbonate").value);
   var glycemie = parseFloat(document.getElementById("glycemie").value);
-
   var SIDa = (na + k + 2 * ca + 2 * mg) - (cl + lactate);
   var SIDe = bicarbonate + 0.28 * albumine + 1.8 * phosphore;
   var SIG = SIDa - SIDe;
