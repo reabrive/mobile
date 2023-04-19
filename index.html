@@ -26,14 +26,12 @@ label {
   font-size: 60px; /* modification */
 }
 
-input {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px 30px;
-  margin-right: 10px;
-  text-align: center;
-  width: 80px;
-  font-size: 20px; /* modification */
+input[type="number"] {
+  width: 200px; /* ou la largeur que vous souhaitez pour le champ de saisie */
+  padding-left: 30px; /* espace pour le bouton de décrément */
+  padding-right: 10px; /* espace pour le bouton d'incrément */
+  font-size : 60px;
+
 }
 
 button {
@@ -45,16 +43,29 @@ button {
   cursor: pointer;
 }
 
-button.decrement,
-button.increment {
-  background-color: #ccc;
+button.decrement {
+  background-color: blue;
   color: black;
+  width: 100px;
+  height: 100px;
+  font-size: 80px;
+
+}
+
+button.increment {
+  background-color: red;
+  color: black;
+  width: 100px;
+  height: 100px;
+  font-size : 80px;
+  
 }
 
 button[type="submit"] {
   display: block;
   margin-top: 20px;
-  width: 100%;
+  width: 800px;
+  font-size : 80px;
 }
 
 footer, #info, #resultat {
