@@ -3,15 +3,19 @@
    <head>
       <title>Calculateur Stewart</title>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
       <style>
       body {
   font-family: Arial, sans-serif;
   padding: 20px;
+  font-size : 60px;
 }
 
 form {
   display: grid;
   gap: 20px;
+  font-size : 60px;
 }
 
 .input-container {
@@ -61,12 +65,7 @@ button.increment {
   
 }
 
-button[type="submit"] {
-  display: block;
-  margin-top: 20px;
-  width: 800px;
-  font-size : 80px;
-}
+
 
 footer, #info, #resultat {
   max-width: 800px; /* modification */
@@ -80,7 +79,7 @@ footer {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -89,15 +88,35 @@ p {
   font-size: 18px;
   color: #5E5E5E;
 }
+#calculer {
+    background-color: green;
+    color: white;
+    font-size: 60px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 33.33%
+    margin: 0 auto;
+}
 
-          
-
-        
-
-        
-           
-		
-		
+#calculer:hover {
+    background-color: darkgreen;
+}
+.bouton {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 50px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    
       </style>
    </head>
    <body>
@@ -113,21 +132,21 @@ p {
         <div class="input-container">
             <label for="po">PO2</label>
             <button type="button" class="decrement" onclick="incrementInput('po', -1)">-</button>
-            <input type="number" step="any" id="po" name="po" data-default="100" readonly>
+            <input type="number" step="1" id="po" name="po" data-default="100" readonly>
             <button type="button" class="increment" onclick="incrementInput('po', 1)">+</button>
         </div>
 
         <div class="input-container">
             <label for="pc">PCO2</label>
             <button type="button" class="decrement" onclick="incrementInput('pc', -1)">-</button>
-            <input type="number" step="any" id="pc" name="pc" data-default="40" readonly>
+            <input type="number" step="1" id="pc" name="pc" data-default="40" readonly>
             <button type="button" class="increment" onclick="incrementInput('pc', 1)">+</button>
         </div>
 
         <div class="input-container">
             <label for="na">Natrémie (mmol/L)</label>
             <button type="button" class="decrement" onclick="incrementInput('na', -1)">-</button>
-            <input type="number" step="any" id="na" name="na" data-default="140" readonly>
+            <input type="number" step="1" id="na" name="na" data-default="140" readonly>
             <button type="button" class="increment" onclick="incrementInput('na', 1)">+</button>
         </div>
 
@@ -155,7 +174,7 @@ p {
         <div class="input-container">
             <label for="cl">Chlorémie (mmol/L)</label>
             <button type="button" class="decrement" onclick="incrementInput('cl', -1)">-</button>
-            <input type="number" step="any" id="cl" name="cl" data-default="100" readonly>
+            <input type="number" step="1" id="cl" name="cl" data-default="100" readonly>
             <button type="button" class="increment" onclick="incrementInput('cl', 1)">+</button>
         </div>
 
@@ -176,21 +195,21 @@ p {
         <div class="input-container">
             <label for="albumine">Albuminémie (g/L)</label>
             <button type="button" class="decrement" onclick="incrementInput('albumine', -1)">-</button>
-            <input type="number" step="any" id="albumine" name="albumine" data-default="40" readonly>
+            <input type="number" step="1" id="albumine" name="albumine" data-default="40" readonly>
             <button type="button" class="increment" onclick="incrementInput('albumine', 1)">+</button>
         </div>
 
         <div class="input-container">
             <label for="bicarbonate">Bicarbonates (mmol/L)</label>
             <button type="button" class="decrement" onclick="incrementInput('bicarbonate', -1)">-</button>
-            <input type="number" step="any" id="bicarbonate" name="bicarbonate" data-default="24" readonly>
+            <input type="number" step="1" id="bicarbonate" name="bicarbonate" data-default="24" readonly tofixed(0)>
             <button type="button" class="increment" onclick="incrementInput('bicarbonate', 1)">+</button>
         </div>
 
         <div class="input-container">
             <label for="glycemie">Glycémie (mmol/L)</label>
             <button type="button" class="decrement" onclick="incrementInput('glycemie', -0.1)">-</button>
-            <input type="number" step="0.1" id="glycemie" name="glycemie" data-default="5.5" readonly>
+            <input type="number" step="0.1" id="glycemie" name="glycemie" data-default="5.5" readonly tofixed(1)>
             <button type="button" class="increment" onclick="incrementInput('glycemie', 0.1)">+</button>
         </div>
 
@@ -198,7 +217,8 @@ p {
          
      
 
-         <button onclick="calculerstewart()">Calculer</button>
+         <button id="calculer" onclick="calculerstewart()">Calculer</button>
+         <input type="reset" value="Réinitialiser" class="bouton">
       </form>
 
       <div id="resultat"></div>
